@@ -1,10 +1,16 @@
 import { useEffect } from 'react';
-import { XpaidWalletSdk, Message, SdkConfig } from 'xpaid-wallet-sdk';
+import {
+  XpaidWalletSdk,
+  Message,
+  SdkConfig,
+  Environment
+} from 'xpaid-wallet-sdk';
 export const CryptoWalletPage = () => {
   useEffect(() => {
     const config: SdkConfig = {
       containerId: 'xpaid-wallet-container',
-      environment: 'production',
+      token: '',
+      environment: Environment.Staging,
       width: '100%',
       height: '100%',
       colorScheme: 'light'
@@ -12,7 +18,7 @@ export const CryptoWalletPage = () => {
 
     XpaidWalletSdk.initialize(config);
 
-    const handleTransferCreated = (payload: any) => {
+    const handleTransferCreated = (payload: unknown) => {
       console.log('Transfer Created:', payload);
     };
     XpaidWalletSdk.subscribe(Message.TransferCreated, handleTransferCreated);
@@ -24,9 +30,9 @@ export const CryptoWalletPage = () => {
   }, []);
 
   return (
-    <div className="flex items-center">
+    <div className="flex flex-col height-full">
       <h1 className="text-lg font-semibold md:text-2xl"> Crypto Wallet</h1>
-      <div id="xpaid-wallet-container" className="w-full p-4" />
+      <div id="xpaid-wallet-container" className="w-full h-[80vh] p-4" />
     </div>
   );
 };
