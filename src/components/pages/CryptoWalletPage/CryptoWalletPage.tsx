@@ -30,9 +30,8 @@ export const CryptoWalletPage = () => {
   }, []);
 
   return (
-    <div className="flex flex-col height-full">
-      <h1 className="text-lg font-semibold md:text-2xl"> Crypto Wallet</h1>
-      <div id="xpaid-wallet-container" className="w-full h-[80vh] p-4" />
+    <div className="flex flex-col ">
+      <div id="xpaid-wallet-container" className="w-full h-[91vh]" />
     </div>
   );
 };
