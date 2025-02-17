@@ -27,7 +27,8 @@ export const App = () => {
           <Route path={ROUTES.BUSINESS} element={<BusinessAccountPage />} />
           <Route path={ROUTES.TRANSFERS} element={<TransfersPage />} />
           <Route path={ROUTES.SUPPORT} element={<SupportCenterPage />} />
-          <Route path={ROUTES.CRYPTO} element={<CryptoWalletPage />} />
+          <Route path={ROUTES.UNVERIFIED_WALLET} element={<CryptoWalletPage />} />
+          <Route path={ROUTES.VERIFIED_WALLET} element={<CryptoWalletPage />} />
         </Route>
       </Routes>
     </Router>

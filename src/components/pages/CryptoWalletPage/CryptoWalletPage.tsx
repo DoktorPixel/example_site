@@ -1,30 +1,33 @@
 import { useEffect } from 'react';
 import {
   XpaidWalletSdk,
-  Message,
   SdkConfig,
   Environment
 } from '../../../../../../../Monorepo/work/xpaid-wallet/packages/sdk/src';
+import { api } from '@/lib/axios';
+import { ApiKey } from '@/constants';
 
 export const CryptoWalletPage = () => {
   useEffect(() => {
-    const config: SdkConfig = {
-      environment: Environment.Staging,
-      containerId: 'xpaid-wallet-container',
-      customerAccount: {
-        customerId: '1a963cad-a375-42b8-bc2a-428645d2181e',
-        iban: 'test'
-      },
-    };
 
-    XpaidWalletSdk.initialize(config);
+    const initSdk = async () => {
+      const customerId = '1a963cad-a375-42b8-bc2a-428645d2181e'
+      const iban = 'test'
 
+      const response = await api.get(`/tokens/hash/${customerId}/${iban}`, {
+        headers: { 'X-API-KEY': ApiKey },
+      })
 
-    XpaidWalletSdk.subscribe(Message.TransferCreated, (payload) => {
-      console.log('Transfer Created:', payload);
-    });
+      const config: SdkConfig = {
+        environment: Environment.Development,
+        containerId: 'xpaid-wallet-container',
+        hashToken: response.data
+      };
 
-    return XpaidWalletSdk.destroy
+      XpaidWalletSdk.initialize(config);
+    }
+
+    initSdk()
   }, []);
 
   return (

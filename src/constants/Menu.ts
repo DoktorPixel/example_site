@@ -3,7 +3,6 @@ import {
   ScrollText,
   BriefcaseBusiness,
   RefreshCcw,
-  Users,
   Grid2x2,
   Info,
   Wallet
@@ -42,8 +41,13 @@ export const MENU = [
     icon: Info
   },
   {
-    label: 'Crypto Wallet',
-    link: ROUTES.CRYPTO,
+    label: 'Crypto Wallet (verified)',
+    link: ROUTES.VERIFIED_WALLET,
+    icon: Wallet
+  },
+  {
+    label: 'Crypto Wallet (unverified)',
+    link: ROUTES.UNVERIFIED_WALLET,
     icon: Wallet
   }
 ];
