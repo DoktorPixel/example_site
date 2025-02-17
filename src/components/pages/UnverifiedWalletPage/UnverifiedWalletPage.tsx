@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
 import { initSdk } from '@/lib/sdk';
 
-const customerId = '1a963cad-a375-42b8-bc2a-428645d2181e'
+const customerId = '01951512-9dd4-7475-8496-056c0cbba23e'
 const iban = 'test'
 
-export const CryptoWalletPage = () => {
+export const UnverifiedWalletPage = () => {
   useEffect(() => {
-    initSdk(customerId, iban)
+    const sdkPromise = initSdk(customerId, iban)
+
+    return () => {
+      sdkPromise.then((sdk) => sdk.destroy())
+    }
   }, []);
 
   return (

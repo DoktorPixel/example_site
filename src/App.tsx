@@ -8,11 +8,12 @@ import {
   BusinessAccountPage,
   TransfersPage,
   SupportCenterPage,
-  CryptoWalletPage
 } from './components/pages';
 
 import { Layout } from '@/components/layouts';
 import { ROUTES } from '@/routes';
+import { VerifiedWalletPage } from './components/pages/VerifiedWalletPage/VerifiedWalletPage';
+import { UnverifiedWalletPage } from './components/pages/UnverifiedWalletPage/UnverifiedWalletPage';
 
 export const App = () => {
   return (
@@ -27,8 +28,8 @@ export const App = () => {
           <Route path={ROUTES.BUSINESS} element={<BusinessAccountPage />} />
           <Route path={ROUTES.TRANSFERS} element={<TransfersPage />} />
           <Route path={ROUTES.SUPPORT} element={<SupportCenterPage />} />
-          <Route path={ROUTES.UNVERIFIED_WALLET} element={<CryptoWalletPage />} />
-          <Route path={ROUTES.VERIFIED_WALLET} element={<CryptoWalletPage />} />
+          <Route path={ROUTES.VERIFIED_WALLET} element={<VerifiedWalletPage />} />
+          <Route path={ROUTES.UNVERIFIED_WALLET} element={<UnverifiedWalletPage />} />
         </Route>
       </Routes>
     </Router>

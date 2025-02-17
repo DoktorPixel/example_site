@@ -1,0 +1,1 @@
+export { VerifiedWalletPage } from './VerifiedWalletPage';

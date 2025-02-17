@@ -1,1 +1,0 @@
-export { CryptoWalletPage } from './CryptoWalletPage';

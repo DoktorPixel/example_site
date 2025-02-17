@@ -6,4 +6,3 @@ export { ConversionsPage } from './ConversionsPage';
 export { BusinessAccountPage } from './BusinessAccountPage';
 export { TransfersPage } from './TransfersPage';
 export { SupportCenterPage } from './SupportCenterPage';
-export { CryptoWalletPage } from './CryptoWalletPage';

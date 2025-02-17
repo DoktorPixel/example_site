@@ -14,4 +14,6 @@ export async function initSdk(customerId: string, iban: string) {
   };
 
   XpaidWalletSdk.initialize(config);
+
+  return XpaidWalletSdk
 }
