@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { initSdk } from '@/lib/sdk';
 
-const customerId = '01951512-9dd4-7475-8496-056c0cbba23e'
+const customerId = '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6'
 const iban = 'test'
 
 export const VerifiedWalletPage = () => {
