@@ -3,7 +3,7 @@ import { api } from "./axios";
 import { Environment, SdkConfig, XpaidWalletSdk } from "xpaid-wallet-sdk";
 
 export async function initSdk(customerId: string, iban: string) {
-  const response = await api.get(`/tokens/hash/${customerId}/${iban}`, {
+  const response = await api.get(`/tokens/hash/iban/${customerId}/${iban}`, {
     headers: { 'X-API-KEY': ApiKey },
   })
 
