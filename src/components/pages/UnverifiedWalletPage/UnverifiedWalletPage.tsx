@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { initSdk } from '@/lib/sdk';
 
-// TODO: should random generate, for new 
 const customerId = '01951512-9dd4-7475-8496-056c0cbba23e'
 const iban = 'test'
 
