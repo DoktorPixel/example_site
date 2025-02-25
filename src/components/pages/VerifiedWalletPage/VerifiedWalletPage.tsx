@@ -1,21 +1,58 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { initSdk } from '@/lib/sdk';
+import { Message, XpaidWalletSdk } from 'xpaid-wallet-sdk';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog"
 
 const customerId = '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6'
 const iban = 'test'
 
 export const VerifiedWalletPage = () => {
+  const [open, setOpen] = useState(false)
+
+
   useEffect(() => {
-    const sdkPromise = initSdk(customerId, iban)
+    initSdk(customerId, iban)
+
+    XpaidWalletSdk.subscribe(Message.TransferCreated, () => {
+      setOpen(true)
+    })
 
     return () => {
-      sdkPromise.then((sdk) => sdk.destroy())
+      XpaidWalletSdk.destroy()
     }
   }, []);
+
+  const handleContinue = () => {
+    XpaidWalletSdk.publish(Message.TransferConfirmed, {})
+  }
 
   return (
     <div className="w-full h-full flex flex-col">
       <div id="xpaid-wallet-container" className="w-full h-full" />
-    </div>
+      <AlertDialog open={open} onOpenChange={setOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This action cannot be undone. This will permanently delete your account
+              and remove your data from our servers.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={handleContinue}>Continue</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </div >
   );
 };
