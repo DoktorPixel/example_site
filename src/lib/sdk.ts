@@ -1,5 +1,6 @@
 import { ApiKey } from "@/constants";
 import { api } from "./axios";
+// import { SdkConfig, Environment, XpaidWalletSdk, } from 'xpaid-wallet-sdk';
 import { SdkConfig, Environment, XpaidWalletSdk, } from 'xpaid-wallet-sdk';
 
 export async function initSdk(customerId: string, iban: string) {
