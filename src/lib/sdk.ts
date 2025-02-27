@@ -1,6 +1,5 @@
 import { ApiKey } from "@/constants";
 import { api } from "./axios";
-// import { SdkConfig, Environment, XpaidWalletSdk, } from 'xpaid-wallet-sdk';
 import { SdkConfig, Environment, XpaidWalletSdk, } from 'xpaid-wallet-sdk';
 
 export async function initSdk(customerId: string, iban: string) {
@@ -8,7 +7,7 @@ export async function initSdk(customerId: string, iban: string) {
     headers: { 'X-API-KEY': ApiKey },
   })
   const config: SdkConfig = {
-    environment: Environment.Staging,
+    environment: Environment.Development,
     containerId: 'xpaid-wallet-container',
     hashToken: response.data.data,
   };
