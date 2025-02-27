@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {
   HomePage,
-  LoginPage,
   AccountPage,
   StatementsPage,
   ConversionsPage,
@@ -21,7 +20,6 @@ export const App = () => {
       <Routes>
         <Route path={ROUTES.HOME} element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path={ROUTES.LOGIN} element={<LoginPage />} />
           <Route path={ROUTES.ACCOUNT} element={<AccountPage />} />
           <Route path={ROUTES.STATEMENTS} element={<StatementsPage />} />
           <Route path={ROUTES.CONVERSIONS} element={<ConversionsPage />} />
