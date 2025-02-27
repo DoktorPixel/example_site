@@ -22,10 +22,6 @@ export const VerifiedWalletPage = () => {
   useEffect(() => {
     initSdk(customerId, iban);
 
-    XpaidWalletSdk.subscribe(Message.AppReady, () => {
-      console.log('app-ready')
-    })
-
     XpaidWalletSdk.subscribe(Message.TransferCreated, ({ amount }) => {
       setOpen(true);
       setAmount(amount);
