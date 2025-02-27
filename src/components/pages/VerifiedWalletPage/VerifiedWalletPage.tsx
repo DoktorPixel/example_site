@@ -40,7 +40,7 @@ export const VerifiedWalletPage = () => {
   }, []);
 
   const handleContinue = () => {
-    XpaidWalletSdk.publish(Message.TransferConfirmed, {});
+    XpaidWalletSdk.publish(Message.TransferConfirmed);
   };
 
   return (
