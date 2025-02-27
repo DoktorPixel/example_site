@@ -18,13 +18,15 @@ const iban = 'test'
 export const VerifiedWalletPage = () => {
   const [open, setOpen] = useState(false);
   const [amount, setAmount] = useState<number | null>(null);
+  const [referenceId, setReferenceId] = useState<string | null>(null);
 
   useEffect(() => {
     initSdk(customerId, iban);
 
-    XpaidWalletSdk.subscribe(Message.TransferCreated, ({ amount }) => {
+    XpaidWalletSdk.subscribe(Message.TransferCreated, ({ referenceId, amount }) => {
       setOpen(true);
       setAmount(amount);
+      setReferenceId(referenceId);
     });
 
     XpaidWalletSdk.subscribe(Message.SessionExpired, () => {
@@ -58,6 +60,7 @@ export const VerifiedWalletPage = () => {
               )}
             </AlertDialogDescription>
           </AlertDialogHeader>
+          <p>Reference ID: {referenceId}</p>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction onClick={handleContinue}>Confirm</AlertDialogAction>
