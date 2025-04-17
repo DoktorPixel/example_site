@@ -12,8 +12,9 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 
-const customerId = '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6'
+const customerId = import.meta.env.DEV ? '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6' : '0df4c171-bf74-4ba1-b326-d357bca99bf8'
 const iban = 'test'
+const accountId = import.meta.env.DEV ? '87854436885': 'anya-test-unique'
 
 export const VerifiedWalletPage = () => {
   const [open, setOpen] = useState(false);
@@ -21,7 +22,7 @@ export const VerifiedWalletPage = () => {
   const [referenceId, setReferenceId] = useState<string | null>(null);
 
   useEffect(() => {
-    initSdk(customerId, iban);
+    initSdk(customerId, iban, accountId);
 
     XpaidWalletSdk.subscribe(Message.TransferCreated, ({ referenceId, amount }) => {
       setOpen(true);
@@ -30,8 +31,8 @@ export const VerifiedWalletPage = () => {
     });
 
     XpaidWalletSdk.subscribe(Message.SessionExpired, () => {
-      console.log('Session expired')
-      location.reload()
+      location.replace('/')
+      alert('Session expired!')
     })
 
     return () => {
