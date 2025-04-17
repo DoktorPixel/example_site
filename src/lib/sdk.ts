@@ -1,4 +1,4 @@
-import { ApiKey } from "@/constants";
+import { ApiKey, isDev } from "@/constants";
 import { api } from "./axios";
 import { SdkConfig, Environment, XpaidWalletSdk, } from 'xpaid-wallet-sdk';
 
@@ -11,7 +11,7 @@ export async function initSdk(customerId: string, iban: string, accountId: strin
     headers: { 'X-API-KEY': ApiKey },
   })
   const config: SdkConfig = {
-    environment: import.meta.env.DEV ? Environment.Development: Environment.Staging,
+    environment: isDev ? Environment.Development: Environment.Staging,
     containerId: 'xpaid-wallet-container',
     hashToken: response.data.data,
   };

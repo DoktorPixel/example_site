@@ -11,9 +11,10 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
+import { isDev } from '@/constants';
 
-const customerId = import.meta.env.DEV ? '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6' : '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6'
-const accountId = import.meta.env.DEV ? '87854436885': 'test'
+const customerId = isDev ? '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6' : '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6'
+const accountId = isDev ? '87854436885': 'test'
 const iban = 'test' 
 
 export const VerifiedWalletPage = () => {
