@@ -31,7 +31,6 @@ export const VerifiedWalletPage = () => {
     });
 
     XpaidWalletSdk.subscribe(Message.SessionExpired, () => {
-      location.replace('/')
       alert('Session expired!')
     })
 
