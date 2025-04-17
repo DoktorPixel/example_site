@@ -6,7 +6,7 @@ const iban = 'unverified'
 
 export const UnverifiedWalletPage = () => {
   useEffect(() => {
-    const sdkPromise = initSdk(customerId, iban)
+    const sdkPromise = initSdk(customerId, iban, '')
 
     return () => {
       sdkPromise.then((sdk) => sdk.destroy())
