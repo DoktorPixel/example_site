@@ -11,7 +11,7 @@ export async function initSdk(customerId: string, iban: string, accountId: strin
     headers: { 'X-API-KEY': ApiKey },
   })
   const config: SdkConfig = {
-    environment: Environment.Staging,
+    environment: import.meta.env.DEV ? Environment.Development: Environment.Staging,
     containerId: 'xpaid-wallet-container',
     hashToken: response.data.data,
   };

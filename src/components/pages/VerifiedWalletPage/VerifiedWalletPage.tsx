@@ -12,9 +12,9 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog"
 
-const customerId = import.meta.env.DEV ? '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6' : '0df4c171-bf74-4ba1-b326-d357bca99bf8'
-const iban = 'test'
-const accountId = import.meta.env.DEV ? '87854436885': 'anya-test-unique'
+const customerId = import.meta.env.DEV ? '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6' : '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6'
+const accountId = import.meta.env.DEV ? '87854436885': 'test'
+const iban = 'test' 
 
 export const VerifiedWalletPage = () => {
   const [open, setOpen] = useState(false);
