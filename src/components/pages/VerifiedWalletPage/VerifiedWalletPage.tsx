@@ -14,7 +14,7 @@ import {
 import { isDev } from '@/constants';
 
 // const customerId = isDev ? '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6' : '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6'
-const customerId = isDev ? '515562f0-6a8e-45c1-a18d-08323968427c' : '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6'
+const customerId = isDev ? 'e5ed5cd5-ee4b-49a8-8b6e-4169c3fb155c' : '485bb67b-a9a2-4e0c-8a17-c1baa02dddd6'
 const accountId = isDev ? 'anya-test-unique': 'test'
 // const accountId = isDev ? '87854436885': 'test'
 const iban = 'test' 
