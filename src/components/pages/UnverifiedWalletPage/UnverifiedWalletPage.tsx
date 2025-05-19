@@ -30,6 +30,10 @@ export const UnverifiedWalletPage = () => {
     }
   }, []);
 
+  const handleCancel = () => {
+    XpaidWalletSdk.publish(Message.TransferRejected)
+  };
+
   const handleContinue = () => {
     XpaidWalletSdk.publish(Message.TransferConfirmed);
   };
@@ -53,7 +57,7 @@ export const UnverifiedWalletPage = () => {
           </AlertDialogHeader>
           <p>Reference ID: {referenceId}</p>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogCancel onClick={handleCancel}>Cancel</AlertDialogCancel>
             <AlertDialogAction onClick={handleContinue}>Confirm</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
